@@ -7,8 +7,12 @@
             [compojure.response :as response]))
 
 (defroutes main-routes
-  (GET "/" [] (index-page))
-  (route/resources "/")
+  ; (GET "/" [] (index-page))
+  (POST "/site" req
+    (println "Post: " (slurp (:body req) :encoding "utf-8"))
+    "OK"
+    )
+  ;(route/resources "/")
   (route/not-found "Page not found"))
 
 (def app
