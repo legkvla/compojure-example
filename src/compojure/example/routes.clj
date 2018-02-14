@@ -9,6 +9,7 @@
 (defroutes main-routes
   ; (GET "/" [] (index-page))
   (POST "/site" req
+    (println "Post params: " (:params req))
     (println "Post: " (slurp (:body req) :encoding "utf-8"))
     "OK"
     )
